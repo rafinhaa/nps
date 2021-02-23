@@ -1,35 +1,20 @@
-import express, { response } from 'express';
+//Database
+import 'reflect-metadata' 
+import express from 'express';
+// Utilizar biblioteca de tipos para o express (em desenvolvimento): yarn add @types/express -D
+// Utilizar biblioteca do TypeScript para interpretar e poder compilar o JS: yarn add typescript -D
+// Para iniciar a bilbioteca do TS, utilizar: yarn tsc --init
+// Biblioteca TS-node-dev para converter código em tempo de execução: yarn add ts-node-dev -D
+
+//Não precisa especificar o index.ts
+import "./database";
+import { router } from './routes';
 
 const app = express();
 
-/**
- * GET    => Buscas
- * POST   => Salvar
- * PUT    => Alterar
- * DELETE => Deletar
- * PATCH  => Alteracao especifica
- */
+app.use(express.json());
+app.use(router);
 
- //Routes
- //http://localhost:PORT/users
-app.get("/", (request, response) =>{
-    //return response.send("Hello World");
-    return response.json(
-        {
-            message: "Hello World"
-        }
-    );
-});
-
-// 1 Parametro => Rota (Recurso API)
-// 1 Parametro => request,response
-app.post("/", (request, response) =>{
-   //recebeu dados para salvar
-   return response.json(
-        {
-            message: "Dados foram salvos com sucesso"
-        }
-    );
-});
-
+// Criando o servidor na porta 15000, para iniciar: yarn dev
+// Yarn dev configurado no package.json pelo Ts-node-dev
 app.listen(15000, () => console.log("Server start"));
