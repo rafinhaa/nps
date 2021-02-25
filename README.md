@@ -1,19 +1,19 @@
 # NLW - Projeto NPS
 
-<h3 align="center">
+<h4 align="center">
     <img width="300px" src="https://i.postimg.cc/QMFZDQ5c/Screenshot-1.png">
     <br><br>
     <p align="center">
       <a href="#-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a href="#-info">Info</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      <a href="#-how to run the project">Run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;      
+      <a href="#-how-to-run-the-project">Run</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;      
       <a href="#-test">Test</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;      
       <a href="#-contribute">Contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;      
       <a href="#-changelog">Changelog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <a href="#-license">License</a>
   </p>
-</h3>
+</h4>
 <p align="center">
   <a href="https://rocketseat.com.br">
     <img src="https://i.imgur.com/1o7urkT.png">
@@ -40,7 +40,7 @@ Net Promoter Score (NPS), aplicativo para pesquisa de satisfação.
 - [Day 3](https://www.notion.so/Dia-3-Testando-a-nossa-aplica-o-6b517e6d081241258009c640f7032cde)
 - [Day 4](https://www.notion.so/danileao/Dia-4-Envio-de-e-mail-1b85cb36f0a84e5e90a43e3acbce5674)
 
-## 🚀 How to run the project
+## 🏁 How to run the project
 #### Clone the repository
 ```bash
 git clone https://github.com/rafinhaa/nps.git
@@ -54,29 +54,24 @@ yarn install
 
 #### Run the application
 ```bash
-yarn start
+yarn dev
 ```
 
 #### Generation database.sqlite and tables
 ```bash
-- yarn typeorm migration:run
+yarn typeorm migration:run
 ```
 
-## ⤵ test
-
+## 🔧 Test
 To test whether you installed the application correctly and pass all integration tests, use the command:
-
 ```bash
-- yarn test
+yarn test
 ```
 
 ## 🤝 How to contribute with
 Every kind of contribution is welcome, we admire it!
-
 Is there any problem? Found a bug? Do you have any tips? Open an [issue](https://github.com/rafinhaa/nps/issues) describing it.
-
 Want to contribute code? We ask that you first read [this contribution guide](https://github.com/firstcontributions/first-contributions)
-
 Don't forget to leave your ⭐, it is also a way to contribute to the project;)
 
 ## 📄 Changelog
