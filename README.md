@@ -52,14 +52,14 @@ cd projeto-nps
 yarn install
 ```
 
-#### Run the application
-```bash
-yarn dev
-```
-
 #### Generation database.sqlite and tables
 ```bash
 yarn typeorm migration:run
+```
+
+#### Run the application
+```bash
+yarn dev
 ```
 
 ## 🔧 Test
@@ -70,9 +70,12 @@ yarn test
 
 ## 🤝 How to contribute with
 Every kind of contribution is welcome, we admire it!
+
 Is there any problem? Found a bug? Do you have any tips? Open an [issue](https://github.com/rafinhaa/nps/issues) describing it.
+
 Want to contribute code? We ask that you first read [this contribution guide](https://github.com/firstcontributions/first-contributions)
-Don't forget to leave your ⭐, it is also a way to contribute to the project;)
+
+Don't forget to leave your ⭐, it is also a way to contribute to the project ;)
 
 ## 📄 Changelog
 ##### v0.0.4b
