@@ -10,6 +10,7 @@ import { SurveysRepository } from "../repositories/SurveysRepository";
 import { SurveysUsersRepository } from "../repositories/SurveysUsersRepository";
 import { UsersRepository } from "../repositories/UsersRepository";
 import SendMailService from "../services/SendMailService";
+import { AppError } from '../errors/AppError';
 
 class SendMailController {
 
@@ -31,9 +32,7 @@ class SendMailController {
 
         // Se o usuário não existir, dar erro
         if(!user) {
-            return response.status(400).json({
-                error: "User does not exists",
-            });
+            throw new AppError("User does not exists!");
         }
 
         // Capturar no findOne() o id do survey_id
@@ -41,30 +40,24 @@ class SendMailController {
     
         // Se a pesquisa não existir, dar erro
         if(!survey) {
-            return response.status(400).json({
-                error: "Survey does not exists",
-            });
+            throw new AppError("Survey does not exists!");
         }
 
         // Verificar se o usuário já respondeu essa pesquisa
         // Não deixando criar vários registrados de resposta para o mesmo usuário e pesquisa
         const surveyUserAlreadyExists = await surveysUsersRepository.findOne({
-            where: [
-                {
-                user_id: user.id,
-                value: null
-            }],
+            where: {user_id: user.id,value: null},
             // Para poder ver os dados do usuário e da pesquisa além do cadastro da pesquisa
             // Por meio dos ManyToOne e JoinColumn da classe SurveyUser
             relations: ["user", "survey"]
         });
 
         // Variável para passar pro handlebars colocar no texto
-        const variable = {
+        const variables = {
             name: user.name,
             title: survey.title,
             description: survey.description,
-            user_id: user.id,
+            id: "",
             link: process.env.URL_MAIL
         };
 
@@ -73,8 +66,9 @@ class SendMailController {
         const npsPath = resolve(__dirname, "..", "views", "emails", "npsMail.hbs");
 
         if(surveyUserAlreadyExists) {
+            variables.id = surveyUserAlreadyExists.id;
             // Chamando o serviço de email pra enviar o email
-            await SendMailService.execute(email, survey.title, variable, npsPath);
+            await SendMailService.execute(email, survey.title, variables, npsPath);
             return response.json(surveyUserAlreadyExists);
         }
         
@@ -85,6 +79,7 @@ class SendMailController {
             survey_id: survey.id
         });
         // Esperando salvar o registro na tabela do banco de dados
+        variables.id = surveyUser.id;
         await surveysUsersRepository.save(surveyUser);
 
     }

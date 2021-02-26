@@ -32,6 +32,11 @@ Net Promoter Score (NPS), aplicativo para pesquisa de satisfação.
 - [Express](https://expressjs.com/pt-br/)
 - [YARN](https://yarnpkg.com/)
 - [Typescript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+- [Typeorm](https://typeorm.io/)
+- [Nodemailer](https://nodemailer.com/)
+- [Handlebars](https://handlebarsjs.com/)
+- [yup](https://github.com/jquense/yup)
 
 ## ℹ️ Info
 - [Ambiente](https://www.notion.so/Configura-es-do-ambiente-Node-js-ae9fea3f78894139af4268d198294e2a)
@@ -39,6 +44,7 @@ Net Promoter Score (NPS), aplicativo para pesquisa de satisfação.
 - [Day 2](https://www.notion.so/danileao/Dia-2-Iniciando-com-o-Banco-de-Dados-ffa8a141872641b7b13338f339d7a69b)
 - [Day 3](https://www.notion.so/Dia-3-Testando-a-nossa-aplica-o-6b517e6d081241258009c640f7032cde)
 - [Day 4](https://www.notion.so/danileao/Dia-4-Envio-de-e-mail-1b85cb36f0a84e5e90a43e3acbce5674)
+- [Day 5](https://www.notion.so/Configura-es-do-ambiente-Node-js-ae9fea3f78894139af4268d198294e2a)
 
 ## 🏁 How to run the project
 #### Clone the repository
@@ -78,6 +84,14 @@ Want to contribute code? We ask that you first read [this contribution guide](ht
 Don't forget to leave your ⭐, it is also a way to contribute to the project ;)
 
 ## 📄 Changelog
+##### v0.0.5b
+- Refatorado SendMailController
+- Criado controller de resposta de usuário
+-- Validado se o usuário existe
+-- Alterado rota de resposta
+- Criado controller com cálculo NPS
+- Criado validações
+
 ##### v0.0.4b
 - Criado migration de surveysUsers
 - Criado model surveysUsers
